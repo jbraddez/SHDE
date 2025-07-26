@@ -11,12 +11,6 @@
     "url": "https://open.spotify.com/album/2Sr6tkXv7xHiwz3uGPjBLz"
 },
 {
-    "title": "One more chance",
-    "year": "2024",
-    "img": "onemorechance",
-    "url": "https://open.spotify.com/album/5VzJFW82YiQ3DLUi6kpaff"
-},
-{
     "title": "DON'T GO",
     "year": "2024",
     "img": "dontgo",
@@ -39,12 +33,6 @@
     "year": "2023",
     "img": "icall",
     "url": "https://open.spotify.com/album/0I3ik2lOfu5nkbcBhmcO7v"
-},
-{
-    "title": "Because of you",
-    "year": "2023",
-    "img": "becauseofyou",
-    "url": "https://open.spotify.com/album/6BpNhCvk2yPx9GXmWkepCS"
 },
 {
     "title": "TELL ME WHY",
@@ -78,7 +66,7 @@
 },
 {
     "title": "FALL APART (Remastered)",
-    "year": "2024",
+    "year": "2021",
     "img": "fallapart",
     "url": "https://open.spotify.com/album/3enFzrw6uWLuAiUsd9cg2z"
 }
