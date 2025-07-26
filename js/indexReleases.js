@@ -17,9 +17,4 @@ fetch('/json/releases.json')
             <img src="/images/spotify.png" alt="Listen on Spotify" class="spotifyOverlay">
         `;
 
-        container.appendChild(row);
-    });
-})
-.catch(err => {
-    console.error('Failed to load releases:', err);
-});
+        container.appendChil
