@@ -1,0 +1,13 @@
+.musicVideo{
+    margin: 2rem auto;
+    width: 95%;
+    max-width: 800px;
+    aspect-ratio: 16/9;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 0 1rem #f225;
+    position: relative;
+    background: #f225;
+}
+
+.musicVid
