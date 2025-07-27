@@ -1,31 +1,14 @@
-#warning{
-    text-align: center;
+.photos{
+    display: flex;
+    height: 10rem;
 }
 
-section{
-    margin-bottom: 4rem;
-}
-
-h2{
-    margin-bottom: 1rem;
-}
-
-section img{
+.photos img{
+    height: 100%;
+    border-radius: 0.5rem;
+    border: 1px solid #f224;
     cursor: pointer;
-}
-
-section img{
-    transition: 200ms;
-}
-
-
-section:hover img{
-    filter: none !important;
-}
-
-section img:hover{
-    scale: 1.05;
-    box-shadow: 0 0 0.5rem #f11d;
+    box-shadow: 0 0 0.2rem #f22;
 }
 
 .posterCard{

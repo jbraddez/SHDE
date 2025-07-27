@@ -115,7 +115,13 @@ section h2{
     text-align: center;
 }
 
+.nextEvent .row{
+    margin-bottom: 1.5rem;
+}
 
+.year{
+    text-align: left;
+}
 
 .socials:not(.listen){
     margin: 0 auto;

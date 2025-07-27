@@ -148,6 +148,12 @@ nav{
 
 /* hamburger mobile */
 @media (max-width: 768px) {
+    .logo.nav-open{
+        z-index: 20;
+        position: fixed;
+        filter: drop-shadow(0.1rem 0.1rem 1rem #111);
+    }
+
     .hamburger{
     display: flex;
     padding: 1.4rem;
@@ -167,7 +173,7 @@ nav{
     flex-direction: column;
     align-items: center;
     padding: 1rem 0;
-    height: 100lvh;
+    height: 100dvh;
     background: linear-gradient(135deg, #111, #333);
     transform: translateY(-100%);
     overflow: hidden;
@@ -177,7 +183,7 @@ nav{
   
 
     nav.nav-open{
-        height: 100lvh;
+        height: 100dvh;
         position: fixed;
         top: 0;
     }
@@ -189,6 +195,7 @@ nav{
     opacity: 1;
     pointer-events: auto;
     justify-content: space-evenly;
+    padding-top: 5rem;
     }
 
     .headerGap{

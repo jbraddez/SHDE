@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHDE | SHDE Official Site</title>
+    <title>Gallery | SHDE Official Site</title>
     <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/css/gallery.css">
     <!-- SEO -->
     <link rel="icon" type="image/png" href="/images/favicon-32x32.png">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    
 </head>
 <body>
     <header>
@@ -29,10 +29,24 @@
         </nav>
     </header>
 
-    
-   
+    <section class="first">
+        <h2>SHDE Gallery</h2>
+        <div class="photos">
+            <img src="/images/gallery/shde1.webp" alt="">
+        </div>
+        <h2>Events Gallery</h2>
+         <div class="photos">
+            <img src="/images/gallery/gig1.webp" alt="">
+        </div>
+        <h2>Fan Gallery</h2>
+    </section>
 
-   
+     <div id="openPoster">
+      <img id="openPosterImg" src="" alt="SHDE Event Poster">
+      <button onclick="closePoster()" id="closePoster"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></button>
+    </div>
+  
     <script src="/js/script.js"></script>
+    <script src="/js/gallery.js"></script>
 </body>
 </html>
