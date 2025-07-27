@@ -9,3 +9,86 @@ section{
 h2{
     margin-bottom: 1rem;
 }
+
+section img{
+    cursor: pointer;
+}
+
+section img{
+    transition: 200ms;
+}
+
+section:hover img{
+    filter: none !important;
+}
+
+section img:hover{
+    scale: 1.05;
+    box-shadow: 0 0 0.5rem #f11d;
+}
+
+.posterCard{
+    height: 10rem;
+}
+.poster{
+    height: 100%;
+    aspect-ratio: 93/128;
+}
+
+.poster img{
+    height: 100%;
+    width: 100%;
+}
+
+#openPoster{
+    display: none;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    height: 100dvh;
+    background: #00000099;
+    backdrop-filter: blur(5px);
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+#openPoster img{
+    max-width: calc(100% - 1rem);
+    max-height: 90vh;
+    animation: openPoster 250ms linear;
+}
+
+@keyframes openPoster{
+    0%{
+        scale: 0;
+    }
+    100%{
+        scale: 1;
+    }
+}
+
+#closePoster{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    width: 3rem;
+    height: 3rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: 200ms;
+}
+
+#closePoster svg{
+    width: 100%;
+    height: 100%;
+}
+
+#closePoster:hover{
+    scale: 1.1;
+    filter: drop-shadow(2px 2px 2px solid #ffffff);
+}
