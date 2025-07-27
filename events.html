@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | SHDE Official Site</title>
+    <title>Events | SHDE Official Site</title>
     <link rel="stylesheet" href="/style.css">
-    <style>.first{max-width: 600px; margin: 9rem auto;padding: 1rem;}</style>
+    <link rel="stylesheet" href="/css/rows.css">
+    <link rel="stylesheet" href="/css/events.css">
     <!-- SEO -->
     <link rel="icon" type="image/png" href="/images/favicon-32x32.png">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
 <body>
-   <header>
+    <header>
         <a class="logo" href="/"><img src="/images/logo.png"></a>
         <nav>
             <ul class="nav">
@@ -29,16 +30,22 @@
         </nav>
     </header>
 
+    <section class="first">
+        <h2>Upcoming Events</h2>
+        <div class="upcoming-events">
+
+        </div>
+        <p id="warning">Future events will appear here</p>
+    </section>
+
     
-    <div class="first">
-        <h1>Get in Touch</h1>
-        <p>If you have any questions or feedback please fill out the form below</p>
-        <div style="width:100%;height:500px;" data-fillout-id="nGCqDP796dus" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize></div><script src="https://server.fillout.com/embed/v1/"></script>
-    </div>
+    <section>
+        <h2>Last Event</h2>
+        <div class="last-event card"></div>
+    </section>
 
-    <footer>
-
-    </footer>
+    
     <script src="/js/script.js"></script>
+    <script src="/js/events.js"></script>
 </body>
 </html>

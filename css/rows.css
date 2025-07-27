@@ -1,0 +1,52 @@
+.row{
+    width: 100%;
+    display: flex;
+    background: #0004;
+    justify-content: space-between;
+    align-items: center;
+    height: 5rem;
+    padding: 0 1rem;
+    border-bottom: 2px solid #f225;
+    text-decoration: none;
+    transition: 200ms ease-in-out;
+    position: relative;
+}
+
+.row:first-of-type{
+    border-top: 2px solid #f225;
+}
+
+.row img{
+    height: 80%;
+}
+
+.row:hover{
+    background: #0008;
+}
+
+.row:hover img:not(.spotifyOverlay){
+    filter: blur(3px) brightness(0.6);
+}
+
+.row:hover .spotifyOverlay{
+    height: 3rem !important;
+}
+
+.spotifyOverlay{
+    position: absolute;
+    right: 1.45rem;
+    height: 0 !important;
+    transition: 200ms;
+}
+
+.row-container{
+    width: 100%;
+}
+
+.row-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 2rem;
+}
