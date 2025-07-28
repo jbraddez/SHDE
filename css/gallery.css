@@ -93,3 +93,31 @@ section{
     text-decoration: none;
     color: #f22;
 }
+
+#photosubmit{
+    padding: 0 0.5rem;
+}
+
+.photos img{
+    object-fit: cover;
+}
+
+.bts img{
+    width: 33%;
+}
+
+.events img:nth-child(even){
+    width: 35%;
+}
+
+.events img:nth-child(odd){
+    width: 15%;
+}
+
+.shde .long{
+    width: 35%;
+}
+
+.shde img{
+    width: 16.5%;
+}
