@@ -1,0 +1,12 @@
+{
+    "rewrites": [
+      { "source": "/gallery", "destination": "/gallery.html" },
+      { "source": "/home", "destination": "/" },
+      { "source": "/about", "destination": "/about.html" },
+      { "source": "/events", "destination": "/events.html" },
+      { "source": "/contact", "destination": "/contact.html" },
+      { "source": "/thank-you", "destination": "/thank-you.html" },
+      { "source": "/submit", "destination": "/submit.html" }
+    ]
+  }
+  

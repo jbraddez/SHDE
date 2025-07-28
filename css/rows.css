@@ -25,7 +25,7 @@
 }
 
 .row:hover img:not(.spotifyOverlay){
-    filter: blur(3px) brightness(0.6);
+    filter: blur(3px) brightness(0.5);
 }
 
 .row:hover .spotifyOverlay{

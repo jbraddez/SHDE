@@ -1,6 +1,8 @@
 .photos{
     display: flex;
     height: 10rem;
+    overflow-x: scroll;
+    padding: 0.1rem 0.5rem;
 }
 
 .photos img{
@@ -9,6 +11,7 @@
     border: 1px solid #f224;
     cursor: pointer;
     box-shadow: 0 0 0.2rem #f22;
+    margin: 0 0.5rem;
 }
 
 .posterCard{
@@ -75,4 +78,18 @@
 #closePoster:hover{
     scale: 1.1;
     filter: drop-shadow(2px 2px 2px solid #ffffff);
+}
+
+h2{
+    margin: 2rem auto 0.5rem;
+}
+
+section{
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.link{
+    text-decoration: none;
+    color: #f22;
 }

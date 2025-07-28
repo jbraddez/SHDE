@@ -40,7 +40,7 @@ fetch('/json/events.json')
       });
 
       nextEventSection.appendChild(row);
-      nextEventSection.insertAdjacentHTML('beforeend', `<a class="primary-btn nextEvBtn" href="/events.html">See All</a>`);
+      nextEventSection.insertAdjacentHTML('beforeend', `<a class="primary-btn nextEvBtn" href="/events">See All</a>`);
     } else {
       noEventsWarning.style.display = 'block';
     }
