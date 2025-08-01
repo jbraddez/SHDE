@@ -1,6 +1,10 @@
 section{
     overflow-x: scroll;
 }
+
+.first{
+    margin-top: 7rem;
+}
 .photos{
     display: flex;
     height: 10rem;
