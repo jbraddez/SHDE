@@ -1,3 +1,6 @@
+section{
+    overflow-x: scroll;
+}
 .photos{
     display: flex;
     height: 10rem;
@@ -106,7 +109,7 @@ section{
     width: 33%;
 }
 
-.events img:nth-child(even){
+.events img:nth-child(even), .shde .long{
     width: 35%;
 }
 
@@ -114,10 +117,24 @@ section{
     width: 15%;
 }
 
-.shde .long{
-    width: 35%;
+.shde img{
+    width: 16.5%;
+}
+
+@media screen and (max-width: 468px){
+    .bts img{
+    min-width: 8rem;
+}
+
+.events img:nth-child(even), .shde .long{
+    min-width: 10rem;
+}
+
+.events img:nth-child(odd){
+    min-width: 5rem;
 }
 
 .shde img{
-    width: 16.5%;
+    min-width: 5rem;
+}
 }
