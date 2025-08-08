@@ -5,7 +5,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Submit | SHDE Official Site</title>
     <link rel="stylesheet" href="/style.css">
-    <style>p{text-align: center; margin-top: 0.5rem;}</style>
+    <style>p{text-align: center; margin-top: 0.5rem;}
+    main{margin-top: 8rem; text-align: center;}
+        #gallery {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 10px;
+  padding: 10px 5rem;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+#gallery::-webkit-scrollbar {
+  display: none;
+}
+
+#gallery img {
+  scroll-snap-align: center;
+  height: 300px;
+  aspect-ratio: auto 16 / 9;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  flex-shrink: 0;
+  border: 1px solid rgb(166, 166, 166);
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+#gallery img.selected {
+  border-color: #007bff;
+  box-shadow: 0 0 10px #007bffaa;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255 255 255 / 0.8);
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  user-select: none;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-btn svg{
+    font-size: 20px;
+    fill: #000;
+}
+
+.next-btn svg{
+  transform: scale(-1);
+}
+
+.carousel-btn:active {
+  background: rgba(255 255 255 / 1);
+}
+
+.prev-btn {
+  left: 5px;
+}
+
+.next-btn {
+  right: 5px;
+}
+.selected{border: 2px solid rgb(26, 171, 26);}
+    </style>
     <!-- SEO -->
     <link rel="icon" type="image/png" href="/images/favicon-32x32.png">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -39,15 +119,66 @@
         </nav>
     </header>
 
-    <section class="first">
-        <h2>Submit Your Photos</h2>
-        <p>Submit a photo you took at a gig with SHDE in for a chance for it to be featured in the gallery.</p>
-        <iframe data-tally-src="https://tally.so/embed/m6EA2N?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="347" frameborder="0" marginheight="0" marginwidth="0" title="SHDE Fan Photos"></iframe>
-        <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
-        <p>If the form is not working, try <a target="_blank" href="https://tally.so/r/m6EA2N">here</a></p>
-    </section>
+    <main>
+        <h1>Voting</h1>
+        <p>Select up to 5 of your favourite photos then submit and wait for the results!</p>
+        <div class="carousel-container">
+  <button class="carousel-btn prev-btn"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/></svg></button>
+  <div id="gallery">
+    <script>
+      for(let i=1; i<=14; i++) {
+        document.write('<img src="/fanPhotos/' + i + '.webp" data-id="' + i + '" alt="Photo ' + i + '">')
+      }
+    </script>
+  </div>
+  <button class="carousel-btn next-btn"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/></svg></button>
+</div>
+        <button id="submitBtn" class="primary-btn" disabled>Submit Selections</button>
+    </main>
 
-  
+    <script>
+        const gallery = document.getElementById('gallery')
+        const prevBtn = document.querySelector('.prev-btn')
+        const nextBtn = document.querySelector('.next-btn')
+
+        prevBtn.onclick = () => gallery.scrollBy({left: -160, behavior: 'smooth'})
+        nextBtn.onclick = () => gallery.scrollBy({left: 160, behavior: 'smooth'})
+
+
+   const selected = []
+
+document.getElementById('gallery').addEventListener('click', e => {
+    if (e.target.tagName !== 'IMG') return
+    const id = parseInt(e.target.getAttribute('data-id'))
+    if (selected.includes(id)) {
+        selected.splice(selected.indexOf(id), 1)
+        e.target.classList.remove('selected')
+    } else if (selected.length < 5) {
+        selected.push(id)
+        e.target.classList.add('selected')
+    }
+    document.getElementById('submitBtn').disabled = selected.length === 0
+})
+
+document.getElementById('submitBtn').addEventListener('click', () => {
+    const data = new URLSearchParams()
+    data.append('selectedPhotos', selected.join(','))
+
+    fetch('https://script.google.com/macros/s/AKfycbwYFj4CYBNtOS41SZfLv2oXV33-9FmafC3Ub6qQTi9wSLfZwJ5D_uizFpt1EZPIelqI/exec', {
+        method: 'POST',
+        body: data
+    })
+    .then(res => res.text())
+    .then(text => {
+        if (text.toLowerCase().includes('success')) {
+            alert('Selection submitted!')
+        } else {
+            alert('Error submitting')
+        }
+    })
+    .catch(() => alert('Request failed'))
+})
+    </script>
     <script src="/js/script.js"></script>
 </body>
 </html>
