@@ -33,11 +33,22 @@
   flex-shrink: 0;
   border: 1px solid rgb(166, 166, 166);
   transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  overflow: hidden;
 }
 
-#gallery img.selected {
-  border-color: #007bff;
-  box-shadow: 0 0 10px #007bffaa;
+.cont{
+      position: relative;
+}
+
+.number{
+    position: absolute;
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 1rem;
+    border-radius: 50%;
+    font-size: larger;
+    background: #000;
 }
 
 .carousel-container {
@@ -84,7 +95,7 @@
 .next-btn {
   right: 5px;
 }
-.selected{border: 2px solid rgb(26, 171, 26);}
+.form{max-width: 600px;margin: 0 auto;}
     </style>
     <!-- SEO -->
     <link rel="icon" type="image/png" href="/images/favicon-32x32.png">
@@ -119,22 +130,22 @@
         </nav>
     </header>
 
-    <main>
-        <h1>Voting</h1>
-        <p>Select up to 5 of your favourite photos then submit and wait for the results!</p>
-        <div class="carousel-container">
-  <button class="carousel-btn prev-btn"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/></svg></button>
-  <div id="gallery">
-    <script>
-      for(let i=1; i<=14; i++) {
-        document.write('<img src="/fanPhotos/' + i + '.webp" data-id="' + i + '" alt="Photo ' + i + '">')
-      }
-    </script>
+   <main>
+  <h1>Voting</h1>
+  <p>Select up to 5 of your favourite photos then submit and wait for the results!</p>
+  <div class="carousel-container">
+    <button class="carousel-btn prev-btn"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/></svg></button>
+    <div id="gallery">
+      <script>
+        for(let i=1; i<=14; i++) {
+          document.write('<div class="cont"><img src="/fanPhotos/' + i + '.webp" data-id="' + i + '" alt="Photo ' + i + '"><p class="number">'+i+'</p></div>')
+        }
+      </script>
+    </div>
+    <button class="carousel-btn next-btn"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/></svg></button>
   </div>
-  <button class="carousel-btn next-btn"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/></svg></button>
-</div>
-        <button id="submitBtn" class="primary-btn" disabled>Submit Selections</button>
-    </main>
+  <div class="form" style="width:100%;height:500px;" data-fillout-id="gMEjq5bcmzus" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize></div><script src="https://server.fillout.com/embed/v1/"></script>
+</main>
 
     <script>
         const gallery = document.getElementById('gallery')
@@ -143,41 +154,6 @@
 
         prevBtn.onclick = () => gallery.scrollBy({left: -160, behavior: 'smooth'})
         nextBtn.onclick = () => gallery.scrollBy({left: 160, behavior: 'smooth'})
-
-
-   const selected = []
-
-document.getElementById('gallery').addEventListener('click', e => {
-    if (e.target.tagName !== 'IMG') return
-    const id = parseInt(e.target.getAttribute('data-id'))
-    if (selected.includes(id)) {
-        selected.splice(selected.indexOf(id), 1)
-        e.target.classList.remove('selected')
-    } else if (selected.length < 5) {
-        selected.push(id)
-        e.target.classList.add('selected')
-    }
-    document.getElementById('submitBtn').disabled = selected.length === 0
-})
-
-document.getElementById('submitBtn').addEventListener('click', () => {
-    const data = new URLSearchParams()
-    data.append('selectedPhotos', selected.join(','))
-
-    fetch('https://script.google.com/macros/s/AKfycbwYFj4CYBNtOS41SZfLv2oXV33-9FmafC3Ub6qQTi9wSLfZwJ5D_uizFpt1EZPIelqI/exec', {
-        method: 'POST',
-        body: data
-    })
-    .then(res => res.text())
-    .then(text => {
-        if (text.toLowerCase().includes('success')) {
-            alert('Selection submitted!')
-        } else {
-            alert('Error submitting')
-        }
-    })
-    .catch(() => alert('Request failed'))
-})
     </script>
     <script src="/js/script.js"></script>
 </body>
