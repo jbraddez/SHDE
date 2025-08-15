@@ -5,102 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Submit | SHDE Official Site</title>
     <link rel="stylesheet" href="/style.css">
-    <style>p{text-align: center; margin-top: 0.5rem;}
-    main{margin-top: 8rem; text-align: center;}
-        #gallery {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  gap: 10px;
-  padding: 10px 5rem;
-  scrollbar-width: none;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-}
-
-#gallery::-webkit-scrollbar {
-  display: none;
-}
-
-#gallery img {
-  scroll-snap-align: center;
-  height: 300px;
-  aspect-ratio: auto 16 / 9;
-  object-fit: cover;
-  border-radius: 4px;
-  cursor: pointer;
-  user-select: none;
-  flex-shrink: 0;
-  border: 1px solid rgb(166, 166, 166);
-  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  overflow: hidden;
-}
-
-.cont{
-      position: relative;
-}
-
-.number{
-    position: absolute;
-    bottom: -0.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 0.5rem 1rem;
-    border-radius: 50%;
-    font-size: larger;
-    background: #000;
-}
-
-.carousel-container {
-  position: relative;
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255 255 255 / 0.8);
-  border: none;
-  border-radius: 50%;
-  width: 35px;
-  height: 35px;
-  cursor: pointer;
-  user-select: none;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.carousel-btn svg{
-    font-size: 20px;
-    fill: #000;
-}
-
-.next-btn svg{
-  transform: scale(-1);
-}
-
-.carousel-btn:active {
-  background: rgba(255 255 255 / 1);
-}
-
-.prev-btn {
-  left: 5px;
-}
-
-.next-btn {
-  right: 5px;
-}
-.form{max-width: 600px;margin: 0 auto;}
-    </style>
     <!-- SEO -->
     <link rel="icon" type="image/png" href="/images/favicon-32x32.png">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <meta name="robots" content="noindex, follow">
+    <style> main{margin-top: 8rem; text-align: center;}
+    h1{margin-bottom: 1rem;}</style>
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-YEYGGR8WN5"></script>
 <script>
@@ -131,30 +41,10 @@
     </header>
 
    <main>
-  <h1>Voting</h1>
-  <p>Select up to 5 of your favourite photos then submit and wait for the results!</p>
-  <div class="carousel-container">
-    <button class="carousel-btn prev-btn"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/></svg></button>
-    <div id="gallery">
-      <script>
-        for(let i=1; i<=14; i++) {
-          document.write('<div class="cont"><img src="/fanPhotos/' + i + '.webp" data-id="' + i + '" alt="Photo ' + i + '"><p class="number">'+i+'</p></div>')
-        }
-      </script>
-    </div>
-    <button class="carousel-btn next-btn"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/></svg></button>
-  </div>
-  <div class="form" style="width:100%;height:500px;" data-fillout-id="gMEjq5bcmzus" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize></div><script src="https://server.fillout.com/embed/v1/"></script>
-</main>
+    <h1>There are no submissions currently.</h1>
+    <a class="primary-btn" href="/">Go Home</a>
+   </main>
 
-    <script>
-        const gallery = document.getElementById('gallery')
-        const prevBtn = document.querySelector('.prev-btn')
-        const nextBtn = document.querySelector('.next-btn')
-
-        prevBtn.onclick = () => gallery.scrollBy({left: -160, behavior: 'smooth'})
-        nextBtn.onclick = () => gallery.scrollBy({left: 160, behavior: 'smooth'})
-    </script>
     <script src="/js/script.js"></script>
 </body>
 </html>

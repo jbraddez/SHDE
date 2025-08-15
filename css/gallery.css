@@ -125,6 +125,10 @@ section{
     width: 16.5%;
 }
 
+.fans img{
+    flex: 1;
+}
+
 @media screen and (max-width: 468px){
     .bts img{
     min-width: 8rem;
